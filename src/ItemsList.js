@@ -1,12 +1,12 @@
 import ItemCard from './ItemCard'
 
-function ItemsPool({ data }) {
+function ItemsList({ data }) {
   return (
-    <section className="grid grid-cols-4 gap-3 mx-10 w-1/2">
+    <section className="grid grid-cols-3 gap-3 mx-10">
       {data.map((item) => (
         <ItemCard key={item.id} data={item} />
       ))}
     </section>
   )
 }
-export default ItemsPool
+export default ItemsList
