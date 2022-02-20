@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Context } from './Context'
+
+import Loading from './Loading'
 import ErrorMessage from './ErrorMessage'
-import DeliveredList from './DeliveredList'
 import ItemsList from './ItemsList'
 import QueueList from './QueueList'
+import DeliveredList from './DeliveredList'
 
 function App() {
   const route = 'https://vending-machine-test.vercel.app/api/products'
@@ -49,7 +51,7 @@ function App() {
         {error.state && <ErrorMessage msg={error.msg} />}
 
         {/* loading? */}
-        {!error.state && loadingPage ? 'loading' : ''}
+        {!error.state && loadingPage && <Loading />}
 
         {/* data🎉 */}
         {!error.state && !loadingPage && (

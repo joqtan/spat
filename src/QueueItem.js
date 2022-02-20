@@ -7,12 +7,14 @@ function QueueItem({ data }) {
 
   useEffect(() => {
     // * decrease countdown
+
     if (timeLeft !== 0) {
       setTimeout(() => {
         setTimeLeft(timeLeft - 1)
       }, 1000)
     } else {
       // * cleaning queue
+
       const newQueue = global.queue.filter(
         (item) => item.app_id !== data.app_id
       )
