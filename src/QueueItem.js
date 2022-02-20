@@ -11,8 +11,12 @@ function QueueItem({ data }) {
         setTimeLeft(timeLeft - 1)
       }, 1000)
     } else {
+      const newQueue = global.queue.filter(
+        (item) => item.app_id !== data.app_id
+      )
       setGlobal({
         ...global,
+        queue: [...newQueue],
         delivered: [...global.delivered, { ...data }],
       })
     }
