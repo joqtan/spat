@@ -1,7 +1,7 @@
 import React from 'react'
 
 function ErrorMessage({ msg }) {
-  return <div>{msg}</div>
+  return <p className="font-semibold text-xl">⚠️ {msg} ⚠️</p>
 }
 
 export default ErrorMessage

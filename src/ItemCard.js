@@ -5,14 +5,15 @@ function ItemCard({ data }) {
   const { global, setGlobal } = useContext(Context)
 
   const productHandler = () => {
+    //* adding items to queue
     setGlobal({
       ...global,
       queue: [
         ...global.queue,
         {
           ...data,
+          // * creating a custum id for app to try avoid duplicades
           app_id: `${Math.random() * 1000}${data.id}`,
-          time: data.preparation_time,
         },
       ],
     })
@@ -21,11 +22,11 @@ function ItemCard({ data }) {
   return (
     <>
       <section
-        className="flex flex-col w-4/5 items-center bg-white rounded-md p-3 hover:cursor-pointer hover:shadow-md hover:shadow-gray-800 space-y-3"
+        className="flex flex-col w-4/5 items-center bg-white rounded-md p-2 hover:cursor-pointer hover:shadow-md hover:shadow-gray-800 space-y-3"
         onClick={productHandler}
       >
         <header className="flex justify-center w-full">
-          <p className="text-sm  w-11/12 text-center overflow-hidden whitespace-nowrap text-ellipsis">
+          <p className=" font-semibold  w-11/12 text-center overflow-hidden whitespace-nowrap text-ellipsis">
             {data.name}
           </p>
         </header>
